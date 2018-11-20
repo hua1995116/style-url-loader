@@ -5,7 +5,7 @@ function replaceSource(source, publicPath) {
         publicPath = publicPath.replace(/\/$/, '');
     }
     const reg = /url\(['"]?(.+?)['"]?\)/;
-    innerUrl = source.match(reg);
+    let innerUrl = source.match(reg);
     innerUrl = innerUrl && innerUrl[1];
     if(!innerUrl) {
         return source;
