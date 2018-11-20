@@ -7,3 +7,25 @@
     <a href="https://www.npmjs.com/package/style-url-loader" rel="nofollow"><img src="https://img.shields.io/npm/v/style-url-loader.svg" style="max-width:100%;"></a>
     <a href="https://www.npmjs.com/package/style-url-loader" rel="nofollow"><img src="https://img.shields.io/npm/l/style-url-loader.svg?style=flat" style="max-width:100%;"></a>
 </p>
+
+# options
+    url {String}
+
+
+# example
+
+url: //cloud.qiufeng.com/
+```css
+.css {
+    background: url(/static/demo.png)
+}
+```
+
+out
+
+```css
+.css {
+    background: url(//cloud.qiufeng.com/static/demo.png)
+}
+```
+
