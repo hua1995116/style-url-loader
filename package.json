@@ -4,16 +4,26 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/mocha/bin/_mocha"
+    "test": "./node_modules/.bin/istanbul cover node_modules/mocha/bin/_mocha && ./node_modules/.bin/codecov",
+    "build": "./node_modules/.bin/babel src --out-dir dist"
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "loader-utils": "^1.1.0"
+    "loader-utils": "^1.1.0",
+    "lodash.endswith": "^4.2.1",
+    "lodash.startswith": "^4.2.1"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-3": "^6.24.1",
+    "babel-runtime": "^6.26.0",
     "chai": "^4.2.0",
+    "codecov": "^3.1.0",
+    "istanbul": "^0.4.5",
     "mocha": "^5.2.0"
   }
 }

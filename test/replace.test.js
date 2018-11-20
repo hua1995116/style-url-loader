@@ -1,5 +1,5 @@
 const assert = require('chai').assert;
-const replaceSource = require('../replace');
+const replaceSource = require('../src/replace');
 
 describe('url loader', () => {
     it('case can replace', () => { 
