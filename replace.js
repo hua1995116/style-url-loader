@@ -5,6 +5,9 @@ function replaceSource(source, publicPath) {
     const reg = /url\(['"]?(.+?)['"]?\)/;
     innerUrl = source.match(reg);
     innerUrl = innerUrl && innerUrl[1];
+    if(!innerUrl) {
+        return source;
+    }
     const isStatic = /^data:|^chrome-extension:|^moz-extension:|^ms-browser-extension:|^(https?:)?\/\//.test(innerUrl);
     if(!isStatic) {
         if(innerUrl.startsWith('/')) {
