@@ -1,5 +1,5 @@
 const loaderUtils = require('loader-utils');
-const url = require('url');
+const replaceSource = require('./replace');
 
 module.exports = function(source) {
     // 获取到用户给当前 Loader 传入的 options
@@ -9,16 +9,3 @@ module.exports = function(source) {
     return replaceSource(source, publicPath);
 };
 
-function replaceSource(source, publicPath) {
-    const reg = /url\(['"]?(.+?)['"]?\)/;
-    innerUrl = source.match(reg);
-    innerUrl = innerUrl && innerUrl[1];
-    const isStatic = /^data:|^chrome-extension:|^moz-extension:|^ms-browser-extension:|^(https?:)?\/\//.test(url);
-    if(!isStatic) {
-        if(innerUrl.startWith('/')) {
-            const resultUrl = url.resolve(publicPath, innerUrl);
-            return source.replace(innerUrl, resultUrl);
-        }
-    }
-    return source;
-}
