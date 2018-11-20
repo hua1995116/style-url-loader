@@ -11,7 +11,8 @@ module.exports = function(source) {
 
 function replaceSource(source, publicPath) {
     const reg = /url\(['"]?(.+?)['"]?\)/;
-    const innerUrl = source.match(reg);
+    innerUrl = source.match(reg);
+    innerUrl = innerUrl && innerUrl[1];
     const isStatic = /^data:|^chrome-extension:|^moz-extension:|^ms-browser-extension:|^(https?:)?\/\//.test(url);
     if(!isStatic) {
         if(innerUrl.startWith('/')) {
