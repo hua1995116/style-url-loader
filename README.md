@@ -8,20 +8,45 @@
     <a href="https://www.npmjs.com/package/style-url-loader" rel="nofollow"><img src="https://img.shields.io/npm/l/style-url-loader.svg?style=flat" style="max-width:100%;"></a>
 </p>
 
-# options
-    url {String}
+## Getting Started
 
+To begin, you'll need to install ```style-url-loader```:
 
-# example
+```shell
+$ npm install style-url-loader --save-dev
+```
 
-url: //cloud.qiufeng.com/
+```javascript
+const cdnUrl = ' //cloud.qiufeng.com/';
+// webpack.config.js
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: [
+          {
+            loader: 'style-url-loader',
+            options: {
+                url: cdnUrl
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+loader before:
+
 ```css
 .css {
     background: url(/static/demo.png)
 }
 ```
 
-out
+loader after:
 
 ```css
 .css {
@@ -29,3 +54,25 @@ out
 }
 ```
 
+
+## options
+### `url`
+
+Type: `String`
+
+```js
+// webpack.config.js
+...
+{
+  loader: 'style-url-loader',
+  options: {
+    url: '[your cdn url]',
+  }
+}
+...
+```
+
+
+## License
+
+[MIT](http://opensource.org/licenses/MIT)
